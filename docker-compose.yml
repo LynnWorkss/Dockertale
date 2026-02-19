@@ -4,9 +4,9 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "${PORT}:${PORT}/udp"
+      - "${PORT:-5520}:${PORT:-5520}/udp"
     environment:
-      - PORT=${PORT}
+      - PORT=${PORT:-5520}
       - USE_AOT_CACHE=true
       - ENABLE_AUTO_UPDATE=true
       - SKIP_DELETE_ON_FORBIDDEN=false
