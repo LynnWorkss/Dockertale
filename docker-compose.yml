@@ -1,18 +1,25 @@
 services:
-  hytale-server:
-    image: ghcr.io/slowline/hytale-docker
+  hytale:
     build: .
-    container_name: hytale
     stdin_open: true
     tty: true
     ports:
-      - "5520:5520/udp"
+      - "${PORT}:${PORT}/udp"
+    environment:
+      - PORT=${PORT}
+      - USE_AOT_CACHE=true
+      - ENABLE_AUTO_UPDATE=true
+      - SKIP_DELETE_ON_FORBIDDEN=false
+      - ACCEPT_EARLY_PLUGINS=false
+      - ALLOW_OP=false
+      - ASSETS_PATH=/hytale/Assets.zip
+      - AUTH_MODE=authenticated
+      - BIND_ADDR=0.0.0.0
+      - BACKUP_ENABLED=false
+      - BACKUP_DIR=/hytale/backups
+      - BACKUP_FREQUENCY=30
+      - DISABLE_SENTRY=false
     volumes:
-      - hytale-data:/hytale
+      - /srv/slthg/hytale/data:/hytale
       - /etc/machine-id:/etc/machine-id:ro
-    env_file:
-      - .env
     restart: unless-stopped
-
-volumes:
-  hytale-data: {}

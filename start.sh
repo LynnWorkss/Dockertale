@@ -147,7 +147,7 @@ if [ "$BACKUP_ENABLED" = "true" ]; then
     ARGS="$ARGS --backup --backup-dir $BACKUP_DIR --backup-frequency $BACKUP_FREQUENCY"
 fi
 
-ARGS="$ARGS --bind $BIND_ADDR:$HYTALE_PORT"
+ARGS="$ARGS --bind $BIND_ADDR:$PORT"
 
 # Additional server options
 HYTALE_ADDITIONAL_OPTS="${HYTALE_ADDITIONAL_OPTS:-}"
