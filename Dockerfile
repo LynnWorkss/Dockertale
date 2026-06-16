@@ -1,7 +1,7 @@
 # Base image
 FROM eclipse-temurin:25.0.1_8-jdk-jammy
 
-LABEL org.opencontainers.image.source="https://github.com/Slowline/hytale-docker"
+LABEL org.opencontainers.image.source="https://github.com/Lynnariss/Dockertale"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
