@@ -20,7 +20,6 @@ services:
       - BACKUP_FREQUENCY=30
       - DISABLE_SENTRY=false
     volumes:
-      - /srv/hytale/${PROJECT_ID:?PROJECT_ID is required}/Server:/hytale/Server
-      - /srv/hytale/${PROJECT_ID:?PROJECT_ID is required}/backups:/hytale/backups
+      - /srv/hytale/${PROJECT_ID:?PROJECT_ID is required}:/hytale
       - /etc/machine-id:/etc/machine-id:ro
     restart: unless-stopped
